@@ -74,6 +74,7 @@ plugins=(git zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
+[[ ":$PATH:" != *":$HOME/.local/bin:"* ]] && PATH=$HOME/.local/bin:$PATH
 bindkey -s ^f "tmux-sessionizer\n"
 
 # User configuration
