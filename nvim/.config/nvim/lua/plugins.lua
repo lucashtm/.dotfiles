@@ -40,4 +40,7 @@ return require('packer').startup(function(use)
   use 'mbbill/undotree'
   use 'tpope/vim-fugitive'
   use 'kchmck/vim-coffee-script'
+  use { 'timtro/glslView-nvim', ft = 'glsl' }
+  use 'tikhomirov/vim-glsl'
+  use 'preservim/nerdcommenter'
 end)

@@ -29,7 +29,7 @@ exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=secrets
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --color 000000 --nofork
 
 exec --no-startup-id xrandr --output HDMI-1 --auto --right-of eDP-1 &
 workspace 1 output eDP-1
@@ -52,10 +52,12 @@ default_floating_border pixel 1
 floating_modifier $mod
 
 # begin -> Personal shortcuts
+bindsym $mod+c exec --no-startup-id i3lock --color 000000 --nofork
 # Open gnome control center
 for_window [class="Gnome-control-center" instance="gnome-control-center"] floating enable
 bindsym $mod+Shift+s exec gnome-control-center
 # Take screenshot
+for_window [class="flameshot" instance="flameshot"] floating enable
 bindsym Print exec flameshot gui
 # end -> Personal shortcuts
 
