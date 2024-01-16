@@ -104,3 +104,5 @@ bindkey -s ^f "tmux-sessionizer\n"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias vim=nvim
 . $HOME/.asdf/asdf.sh
+
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"

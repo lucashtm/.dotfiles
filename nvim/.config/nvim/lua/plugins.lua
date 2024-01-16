@@ -22,7 +22,7 @@ return require('packer').startup(function(use)
       {'rafamadriz/friendly-snippets'},
     }
   }
-  use { 'nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' }}
+  use({ 'nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' }})
   use 'BurntSushi/ripgrep'
   use {
     'nvim-telescope/telescope.nvim', tag = '0.1.0',
@@ -43,4 +43,20 @@ return require('packer').startup(function(use)
   use { 'timtro/glslView-nvim', ft = 'glsl' }
   use 'tikhomirov/vim-glsl'
   use 'preservim/nerdcommenter'
+  use 'github/copilot.vim'
+  use {
+    "nvim-neotest/neotest",
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "antoinemadec/FixCursorHold.nvim",
+      "olimorris/neotest-rspec",
+    },
+    config = function()
+      require("neotest").setup({
+        adapters = {
+          require("neotest-rspec"),
+        }
+      })
+    end
+  }
 end)
