@@ -56,6 +56,8 @@ floating_modifier $mod
 bindsym $mod+c exec --no-startup-id i3lock --color 000000 --nofork
 # Open gnome control center
 bindsym $mod+Shift+s exec gnome-control-center
+# Toggle dual monitors
+bindsym $mod+Shift+m exec xrandr --output HDMI-1 --auto --right-of eDP-1
 # Take screenshot
 bindsym Print exec flameshot gui
 # end -> Personal shortcuts
