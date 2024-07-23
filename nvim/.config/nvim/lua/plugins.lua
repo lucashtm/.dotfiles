@@ -50,12 +50,15 @@ return require('packer').startup(function(use)
   use 'tikhomirov/vim-glsl'
   use 'preservim/nerdcommenter'
   use 'github/copilot.vim'
+  use 'nvim-neotest/nvim-nio'
   use {
     "nvim-neotest/neotest",
     requires = {
       "nvim-lua/plenary.nvim",
+      "nvim-neotest/nvim-nio",
       "antoinemadec/FixCursorHold.nvim",
       "olimorris/neotest-rspec",
+      "nvim-treesitter/nvim-treesitter"
     },
     config = function()
       require("neotest").setup({
