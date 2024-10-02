@@ -18,7 +18,8 @@ vim.opt.ttimeoutlen = 100
 
 
 require('remaps')
-require('plugins')
+require("config.lazy")
+vim.cmd("colorscheme rose-pine")
 
 vim.api.nvim_create_autocmd('TextYankPost', {
   group = vim.api.nvim_create_augroup('highlight_yank', {}),
