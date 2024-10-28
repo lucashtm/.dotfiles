@@ -19,4 +19,5 @@ bindkey -s "^f" "tmux-sessionizer\n"
 alias vim=nvim
 . $HOME/.asdf/asdf.sh
 
+export PATH=$PATH:/usr/local/go/bin
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
