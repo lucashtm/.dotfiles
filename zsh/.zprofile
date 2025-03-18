@@ -9,6 +9,7 @@
 # Browser
 #
 
+BROWSER='xdg-open'
 if [[ -z "$BROWSER" && "$OSTYPE" == darwin* ]]; then
   export BROWSER='open'
 fi

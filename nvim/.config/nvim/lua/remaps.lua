@@ -1,4 +1,4 @@
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+vim.keymap.set("n", "<leader>pv", vim.cmd.Oil)
 
 -- Yank to system clipboard
 vim.keymap.set("n", "<leader>y", "\"+y")

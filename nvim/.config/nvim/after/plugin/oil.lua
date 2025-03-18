@@ -1,9 +1,7 @@
 require("oil").setup({
   -- See :help oil-columns
-  columns = {
-    -- "icon",
-    -- "permissions",
-    -- "size",
-    -- "mtime",
+  columns = {},
+  view_options = {
+    show_hidden = true
   }
 })
