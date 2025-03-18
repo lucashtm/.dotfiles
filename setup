@@ -1,0 +1,71 @@
+#!/usr/bin/env bash
+
+# OS packages
+if command -v apt 2>&1 >/dev/null; then
+  echo "Install OS packages"
+  sudo apt -y update && sudo apt -y upgrade
+  sudo apt -y install \
+    zsh i3 build-essential git ca-certificates curl \
+    libc-dev gcc clang make cmake
+else
+  echo "apt package manager not found"
+fi
+
+# NeoVim
+if command -v nvim 2>&1 >/dev/null; then
+  echo "NeoVim found."
+else
+  echo "NeoVim not found."
+  echo "Installing NeoVim."
+  # TODO: Install neovim
+fi
+
+# Tmux
+if command -v tmux 2>&1 >/dev/null; then
+  echo "tmux found."
+else
+  echo "tmux not found."
+  echo "Installing tmux."
+  # TODO: Install tmux
+fi
+
+# asdf
+if command -v asdf 2>&1 >/dev/null; then
+  echo "asdf found."
+else
+  echo "asdf not found."
+  echo "Installing asdf."
+  # TODO: Install asdf
+fi
+
+# TODO: Languages to manage under asdf:
+# Ruby
+# JavaScript (Node)
+# Python
+
+# golang
+if command -v go 2>&1 >/dev/null; then
+  echo "Golang found."
+else
+  echo "Golang not found."
+  echo "Installing Golang."
+  # TODO: Install golang
+fi
+
+# Docker
+if command -v docker 2>&1 >/dev/null; then
+  echo "Docker found."
+else
+  echo "Docker not found."
+  echo "Installing Docker."
+  sudo install -m 0755 -d /etc/apt/keyrings
+  sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+  sudo chmod a+r /etc/apt/keyrings/docker.asc
+
+  echo \
+    "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+    $(. /etc/os-release && echo "${UBUNTU_CODENAME:-$VERSION_CODENAME}") stable" | \
+    sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+  sudo apt -y update
+  sudo apt -y install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+fi
