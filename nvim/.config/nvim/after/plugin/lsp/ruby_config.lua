@@ -6,7 +6,7 @@ nvim_lsp.solargraph.setup{
   settings = {
     solargraph = {
       autoformat = false,
-      formatting = false,
+      formatting = true,
       completion = true,
       diagnostic = true,
       folding = true,
