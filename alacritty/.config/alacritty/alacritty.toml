@@ -3,5 +3,5 @@ program =  "/bin/zsh"
 args = ["-l"]
 
 [font]
-size = 10.0
+size = 8
 normal = { family = "DroidSansMNerdFontMono", style = "Regular" }

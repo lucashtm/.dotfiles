@@ -1,24 +1,54 @@
-#
-# Executes commands at the start of an interactive session.
-#
-# Authors:
-#   Sorin Ionescu <sorin.ionescu@gmail.com>
-#
+export ZSH=$HOME/.zsh
 
-plugins=(git zsh-autosuggestions)
-# Source Prezto.
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-fi
+fpath+=($ZSH/themes/pure)
+# Theme
+# . $ZSH/themes/pure/pure.zsh
+autoload -U promptinit; promptinit
+prompt pure
 
-# Customize to your needs...
+# SPACESHIP_PROMPT_ORDER=(
+  # user          # Username section
+  # dir           # Current directory section
+  # git           # Git section (git_branch + git_status)
+  # line_sep      # Line break
+  # vi_mode       # Vi-mode indicator
+  # exit_code     # Exit code section
+  # char          # Prompt character
+# )
+# SPACESHIP_USER_SHOW=always
+# SPACESHIP_PROMPT_ADD_NEWLINE=false
+# SPACESHIP_CHAR_SYMBOL="❯"
+# SPACESHIP_CHAR_SUFFIX=" "
+
+# History
+export HISTFILE=$HOME/.zsh_history
+
+# How many commands zsh will load to memory.
+export HISTSIZE=10000
+
+# How many commands history will save on file.
+export SAVEHIST=10000
+
+# History won't save duplicates.
+setopt HIST_IGNORE_ALL_DUPS
+
+# History won't show duplicates on search.
+setopt HIST_FIND_NO_DUPS
+
+autoload -Uz compinit && compinit
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 
 [[ ":$PATH:" != *":$HOME/.local/bin:"* ]] && PATH=$HOME/.local/bin:$PATH
 bindkey -s "^f" "tmux-sessionizer\n"
 
 alias vim=nvim
+
+# asdf
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 . $HOME/.asdf/asdf.sh
 
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:/home/lucas/Dev/gf
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+bindkey -v

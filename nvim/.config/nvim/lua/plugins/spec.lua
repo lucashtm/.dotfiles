@@ -1,28 +1,23 @@
 return {
+  -- LSP Support
+  { "mason-org/mason.nvim", version = "^1.0.0" },
+  { "mason-org/mason-lspconfig.nvim", version = "^1.0.0" },
+  { "neovim/nvim-lspconfig" },
+  -- Autocompletion
   {
-    'VonHeikemen/lsp-zero.nvim',
-    branch = 'v4.x',
-    dependencies = {
-      -- LSP Support
-      'neovim/nvim-lspconfig',
-      'williamboman/mason.nvim',
-      'williamboman/mason-lspconfig.nvim',
+    'hrsh7th/nvim-cmp',
+    'hrsh7th/cmp-buffer',
+    'hrsh7th/cmp-path',
+    'saadparwaiz1/cmp_luasnip',
+    'hrsh7th/cmp-nvim-lsp',
+    'hrsh7th/cmp-nvim-lua',
 
-      -- Autocompletion
-      'hrsh7th/nvim-cmp',
-      'hrsh7th/cmp-buffer',
-      'hrsh7th/cmp-path',
-      'saadparwaiz1/cmp_luasnip',
-      'hrsh7th/cmp-nvim-lsp',
-      'hrsh7th/cmp-nvim-lua',
-
-      -- Snippets
-      'L3MON4D3/LuaSnip',
-      -- Snippet Collection
-      'rafamadriz/friendly-snippets',
-    }
+    -- Snippets
+    'L3MON4D3/LuaSnip',
+    -- Snippet Collection
+    'rafamadriz/friendly-snippets',
   },
-  { "nvim-treesitter/nvim-treesitter",          build = ":TSUpdate" },
+  { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
   {
     'nvim-telescope/telescope.nvim',
     tag = '0.1.8',
@@ -31,13 +26,14 @@ return {
       'nvim-telescope/telescope-live-grep-args.nvim'
     }
   },
+  { 'nvimtools/none-ls.nvim' },
   { 'nvim-telescope/telescope-fzf-native.nvim', build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release' },
-  { "rose-pine/neovim",                         name = "rose-pine" },
+  { "rose-pine/neovim", name = "rose-pine" },
   { 'ThePrimeagen/harpoon' },
   { 'mbbill/undotree' },
   { 'tpope/vim-fugitive' },
   { 'kchmck/vim-coffee-script' },
-  { 'timtro/glslView-nvim',                     ft = 'glsl' },
+  { 'timtro/glslView-nvim', ft = 'glsl' },
   { 'tikhomirov/vim-glsl' },
   { 'preservim/nerdcommenter' },
   {
@@ -46,8 +42,18 @@ return {
       "nvim-neotest/nvim-nio",
       "nvim-lua/plenary.nvim",
       "antoinemadec/FixCursorHold.nvim",
-      "nvim-treesitter/nvim-treesitter"
-    }
+      "nvim-treesitter/nvim-treesitter",
+      "olimorris/neotest-rspec",
+    },
+    config = function()
+      require("neotest").setup({
+        adapters = {
+          require("neotest-rspec")({
+            root_files = { ".rspec" }
+          })
+        },
+      })
+    end
   },
   {
     'stevearc/oil.nvim',
@@ -56,6 +62,8 @@ return {
     opts = {},
     -- Optional dependencies
     dependencies = { { "echasnovski/mini.icons", opts = {} } },
-    -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if prefer nvim-web-devicons
+    -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons
+    -- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
+    lazy = false,
   }
 }
