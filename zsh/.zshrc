@@ -35,8 +35,8 @@ setopt HIST_IGNORE_ALL_DUPS
 # History won't show duplicates on search.
 setopt HIST_FIND_NO_DUPS
 
-# autoload -Uz compinit
-# compinit
+autoload -Uz compinit && compinit
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 
 [[ ":$PATH:" != *":$HOME/.local/bin:"* ]] && PATH=$HOME/.local/bin:$PATH
 bindkey -s "^f" "tmux-sessionizer\n"
@@ -49,3 +49,5 @@ export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 
 export PATH=$PATH:/usr/local/go/bin
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+bindkey -v
