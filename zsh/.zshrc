@@ -6,6 +6,9 @@ fpath+=($ZSH/themes/pure)
 autoload -U promptinit; promptinit
 prompt pure
 
+source $ZSH/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+# fpath=($ZSH/plugins/zsh-completions/src $fpath) # This makes initialization too slow. Removing until needed
+
 # SPACESHIP_PROMPT_ORDER=(
   # user          # Username section
   # dir           # Current directory section
