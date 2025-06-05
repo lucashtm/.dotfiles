@@ -20,4 +20,5 @@ alias vim=nvim
 . $HOME/.asdf/asdf.sh
 
 export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:/home/lucas/Dev/gf
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"

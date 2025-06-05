@@ -22,21 +22,22 @@ return {
       'rafamadriz/friendly-snippets',
     }
   },
-  {"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},
+  { "nvim-treesitter/nvim-treesitter",          build = ":TSUpdate" },
   {
-    'nvim-telescope/telescope.nvim', tag = '0.1.8',
+    'nvim-telescope/telescope.nvim',
+    tag = '0.1.8',
     dependencies = {
       'nvim-lua/plenary.nvim',
       'nvim-telescope/telescope-live-grep-args.nvim'
     }
   },
   { 'nvim-telescope/telescope-fzf-native.nvim', build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release' },
-  { "rose-pine/neovim", name = "rose-pine" },
+  { "rose-pine/neovim",                         name = "rose-pine" },
   { 'ThePrimeagen/harpoon' },
   { 'mbbill/undotree' },
   { 'tpope/vim-fugitive' },
   { 'kchmck/vim-coffee-script' },
-  { 'timtro/glslView-nvim', ft = 'glsl' },
+  { 'timtro/glslView-nvim',                     ft = 'glsl' },
   { 'tikhomirov/vim-glsl' },
   { 'preservim/nerdcommenter' },
   {
@@ -47,5 +48,14 @@ return {
       "antoinemadec/FixCursorHold.nvim",
       "nvim-treesitter/nvim-treesitter"
     }
+  },
+  {
+    'stevearc/oil.nvim',
+    ---@module 'oil'
+    ---@type oil.SetupOpts
+    opts = {},
+    -- Optional dependencies
+    dependencies = { { "echasnovski/mini.icons", opts = {} } },
+    -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if prefer nvim-web-devicons
   }
 }
