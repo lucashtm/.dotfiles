@@ -6,6 +6,9 @@ fpath+=($ZSH/themes/pure)
 autoload -U promptinit; promptinit
 prompt pure
 
+source $ZSH/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+# fpath=($ZSH/plugins/zsh-completions/src $fpath) # This makes initialization too slow. Removing until needed
+
 # SPACESHIP_PROMPT_ORDER=(
   # user          # Username section
   # dir           # Current directory section
@@ -35,8 +38,8 @@ setopt HIST_IGNORE_ALL_DUPS
 # History won't show duplicates on search.
 setopt HIST_FIND_NO_DUPS
 
-# autoload -Uz compinit
-# compinit
+autoload -Uz compinit && compinit
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 
 [[ ":$PATH:" != *":$HOME/.local/bin:"* ]] && PATH=$HOME/.local/bin:$PATH
 bindkey -s "^f" "tmux-sessionizer\n"
@@ -48,3 +51,6 @@ export ASDF_DATA_DIR="/Users/lucas/.asdf"
 export PATH="$ASDF_DATA_DIR/shims:$PATH"
 
 export PATH=$PATH:/usr/local/go/bin
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+bindkey -v
