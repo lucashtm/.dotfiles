@@ -17,10 +17,9 @@ return {
     -- Snippet Collection
     'rafamadriz/friendly-snippets',
   },
-  { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
+  { "nvim-treesitter/nvim-treesitter", lazy = false, build = ":TSUpdate" },
   {
     'nvim-telescope/telescope.nvim',
-    tag = '0.1.8',
     dependencies = {
       'nvim-lua/plenary.nvim',
       'nvim-telescope/telescope-live-grep-args.nvim'

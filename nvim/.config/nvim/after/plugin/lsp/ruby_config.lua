@@ -1,8 +1,6 @@
-local nvim_lsp = require('lspconfig')
-
-nvim_lsp.solargraph.setup{
+vim.lsp.config['solargraph'] = {
   cmd = { os.getenv( "HOME" ) .. "/.asdf/shims/solargraph", 'stdio' },
-  root_dir = nvim_lsp.util.root_pattern("Gemfile", ".git", "."),
+  root_markers = { "Gemfile", ".git", "." },
   settings = {
     solargraph = {
       autoformat = false,
@@ -16,3 +14,4 @@ nvim_lsp.solargraph.setup{
     }
   }
 }
+vim.lsp.enable('solargraph')
