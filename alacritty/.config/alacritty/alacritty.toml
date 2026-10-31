@@ -1,7 +1,7 @@
-[shell]
-program =  "/bin/zsh"
-args = ["-l"]
+[terminal.shell]
+program = "/usr/bin/zsh"
+args = ["--login"]
 
 [font]
 size = 8
-normal = { family = "DroidSansMNerdFontMono", style = "Regular" }
+normal = { family = "CaskaydiaMono Nerd Font Mono", style = "Regular" }

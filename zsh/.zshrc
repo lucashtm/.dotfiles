@@ -46,11 +46,4 @@ bindkey -s "^f" "tmux-sessionizer\n"
 
 alias vim=nvim
 
-# asdf
-export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
-. $HOME/.asdf/asdf.sh
-
-export PATH=$PATH:/usr/local/go/bin
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-
 bindkey -v
